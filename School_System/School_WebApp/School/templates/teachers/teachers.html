@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/schoolsoft/Img/logo.png">
+    <!-- iconos awesome 5 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/6f18a07901.js" crossorigin="anonymous"></script>
+    <!-- iconos google -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <!-- boostrap -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styleModific.css' %}" />
+   
+    <title>Maestros</title>
+</head>
+<body class="body">
+    <header>
+        <nav class="logo">
+            <img class="imgL" src="{% static 'images/imgTeacher/logo.png' %}" alt="logotype">
+            <figcaption>Colegio</figcaption>
+        </nav>
+        <nav class="nav1">       
+            <a href="/home/"><li>INICIO</li></a>            
+            <a href=""><li>CALIFICACIONES</li></a>
+            <a href=""><li>PADRES</li></a>
+        </nav>
+        <nav class="nav2">
+            <a href=""><li class="fa fa-search"></li></a>
+            <a href=""><li class="fab fa-blogger-b"></li></a>
+            <a href=""><li class="fas fa-bell"></li></a>
+        </nav>
+    </header>
+    {% comment %} menu lateral {% endcomment %}
+    <div id="sidemenu" class="menu-collapsed">
+        <!-- header -->
+        <div id="header">
+            <!-- <div id="title"><span>ADGsystem</span></div> -->
+            <div id="menu-btn">
+                <span class="material-symbols-outlined">
+                    menu
+                </span>
+            </div>
+            <div id="title"><span>ADGsystem</span></div>
+
+            <!-- profile -->
+            <div id="profile">
+                <div id="photo"><img src="{% static 'images/imgTeacher/perfil4.png' %}" alt=""></div>
+                <div id="name"><span>nombre user</span></div>                        
+            </div>
+            <!-- items -->
+            <div id="menu-items">
+                <div class="item" id="item-1">
+                    <a href="/logout" id="name">
+                        <div class="icon">
+                            <img src="" alt="" title="Logout">
+                        </div>
+                        <div class="title"><span>Asignaturas</span></div>
+                    </a>
+                </div>
+                <div class="item" id="item-1">
+                    <a href="/logout" id="name">
+                        <div class="icon">
+                            <img src="" alt="" title="Logout">
+                        </div>
+                        <div class="title"><span>Cursos</span></div>
+                    </a>
+                </div>
+                <!-- <div class="item separator"></div> -->
+                <div class="item">
+                    <a href="/cambioPassword">
+                        <div class="icon"><img src="" alt="" title="Cambio Contraseña"></div>
+                        <div class="title"><span>Cambiar Contraseña</span></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div> 
+    <section class="novedades">
+        <article class="avisos"><h2>Avisos Importantes Relacionados a la Institucion</h2></article>
+        <article class="avMaestros"><h4>Informacion extra solo para maestros</h4></article>
+    </section>
+
+    <section class="contenidoC">
+        <div id="cont">
+            <div class="circulo"><li class="fa fa-newspaper-o"></li></div>
+        </div>
+        <div class="barra"><h2>Session con Contenido Multiple</h2></div>
+    </section>
+    
+    <main id="pcentro">
+        <section id="Centro-Options" class="centro">
+            {% block CALIFICACIONES %}
+        
+            {% endblock %}
+        </section>
+    </main>
+    <footer class="piePagina">
+        <ul class="listaI">
+            <a href=""><li>Condiciones de uso</li></a>
+            <a href=""><li>Anuncios basados en intereses</li></a>
+            <a href=""><li>© 1996-2022 AxeExpress.com, Inc. o sus afiliados</li></a>
+            <a href=""><li>Aviso de privacidad</li></a>
+        </ul>
+        <ul class="listaD">
+            <a href="https://github.com/DANI77781" target="_blank"><li class="fab fa-github-square"></li> Github</a>
+            <a href="https://www.linkedin.com/in/carlos-daniel-b-cruz-97a298269/" target="_blank"><li class="fab fa-linkedin-in"></li> Linkedin</a>
+            <a href="https://instagram.com/carlosdanielb.cruz?igshid=ZDdkNTZiNTM=" target="_blank"><li class="fab fa-instagram"></li> Instagram</a>
+            <a href="https://www.facebook.com/profile.php?id=100081350198829&mibextid=ZbWKwL" target="_blank"><li class="fab fa-facebook"></li> Facebook</a>
+        </ul>
+    </footer>
+    <script>
+        const btn = document.querySelector('#menu-btn');
+        const menu = document.querySelector('#sidemenu');
+        btn.addEventListener('click', e =>{
+            menu.classList.toggle('#menu-expanded')
+            menu.classList.toggle('menu-collapsed')
+
+            document.querySelector('body').classList.toggle('body-expanded');
+        });
+    </script>
+</body>
+</html>
