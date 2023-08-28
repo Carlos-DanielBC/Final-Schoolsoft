@@ -37,39 +37,51 @@
                                     <input type="number" name="p1" maxlength="3" id="inp">
                                     <input type="hidden" name="asignatura_id" value="{{ asignatura.subject.id }}">
                                     <input type="hidden" name="student_id" value="{{ student.id }}">
+                                    <input type="hidden" name="student_name" value="{{ student.first_name }} {{ student.last_name }}">
                                     <button id="contImg" name="button1"><img id="img" src="{% static 'images/imgTeacher/mas.png' %}" alt=""></button>
                                 </form>
                             </td>
                             <td>
-                                <!--? ---------aqui quede------------------ -->
-                                <form action="{% url 'calification' %}"
-                                id="form" method="post">
+                                {% comment %} <!--? ---------aqui quede------------------ --> {% endcomment %}
+                                <form action="{% url 'calification' %}" id="form" method="post">
                                  {% csrf_token %}
                                     <input type="number" name="p2" maxlength="3" id="inp">
                                     <input type="hidden" name="asignatura_id" value="{{ asignatura.subject.id }}">
                                     <input type="hidden" name="student_id" value="{{ student.id }}">
+                                    <input type="hidden" name="student_name" value="{{ student.first_name }} {{ student.last_name }}">
                                     <button id="contImg" name="button2"><img id="img" src="{% static 'images/imgTeacher/mas.png' %}" alt=""></button>
                                 </form>
                             </td>
                             <td>
-                                <form action="" id="form">
-                                    <input type="number" name="p1" maxlength="3" id="inp">
+                                <form action="{% url 'calification' %}" id="form" method="post">
+                                {% csrf_token %}
+                                    <input type="number" name="p3" maxlength="3" id="inp">
                                     <input type="hidden" name="asignatura_id" value="{{ asignatura.subject.id }}">
-                                    <button id="contImg"><img id="img" src="{% static 'images/imgTeacher/mas.png' %}" alt=""></button>
+                                    <input type="hidden" name="student_id" value="{{ student.id }}">
+                                    <input type="hidden" name="student_name" value="{{ student.first_name }} {{ student.last_name }}">
+                                    <button id="contImg" name="button3"><img id="img" src="{% static 'images/imgTeacher/mas.png' %}" alt=""></button>
                                 </form>
                             </td>
                             <td>
-                                <form action="" id="form">
-                                    <input type="number" name="p1" maxlength="3" id="inp">
+                                <form action="{% url 'calification' %}"
+                                id="form" method="post">
+                                {% csrf_token %}
+                                    <input type="number" name="p4" maxlength="3" id="inp">
                                     <input type="hidden" name="asignatura_id" value="{{ asignatura.subject.id }}">
-                                    <button id="contImg"><img id="img" src="{% static 'images/imgTeacher/mas.png' %}" alt=""></button>
+                                    <input type="hidden" name="student_id" value="{{ student.id }}">
+                                    <input type="hidden" name="student_name" value="{{ student.first_name }} {{ student.last_name }}">
+                                    <button id="contImg" name="button4"><img id="img" src="{% static 'images/imgTeacher/mas.png' %}" alt=""></button>
                                 </form>
                             </td>
                             <td>
-                                <form action="" id="form">
-                                    <input type="number" name="p1" maxlength="3" id="inp">
+                                <form action="{% url 'calification' %}"
+                                id="form" method="post">
+                                {% csrf_token %}
+                                    <input type="number" name="p5" maxlength="3" id="inp">
                                     <input type="hidden" name="asignatura_id" value="{{ asignatura.subject.id }}">
-                                    <button id="contImg"><img id="img" src="{% static 'images/imgTeacher/mas.png' %}" alt=""></button>
+                                    <input type="hidden" name="student_id" value="{{ student.id }}">
+                                    <input type="hidden" name="student_name" value="{{ student.first_name }} {{ student.last_name }}">
+                                    <button id="contImg" name="button5"><img id="img" src="{% static 'images/imgTeacher/mas.png' %}" alt=""></button>
                                 </form>
                             </td>
                         </tr>
@@ -82,6 +94,31 @@
                         <td>Indice Academico:</td>
                         <td >10</td>
                     </tr>
+                </tbody>
+            </table>
+
+            <table class="table table-dark table-striped">
+                <h2 class="title">Calificando a {{ student.first_name }} {{ student.last_name }}</h2>
+                <thead>
+                    <tr>
+                        <th colspan="6" id="titleCorse">{{ item.course.level }} - {{ item.course.nombre_aula }}</th>
+                    </tr>
+                    <tr>
+                        <th>Asignatura</th>
+                        <th>Calificacion Sep.-Nov</th>
+                        <th>Calificacion Dic.-Feb</th>
+                        <th>Calificacion Mar.-Abr</th>
+                        <th>Calificacion May.-Jun</th>
+                        <th>Calificacion Promedio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for asignatura in cursos_y_asignaturas %}
+                        <tr>
+                            <td>{{ asignatura.subject.name }}</td>
+                            <td></td>
+                        </tr>
+                    {% endfor %}
                 </tbody>
             </table>
         </div>

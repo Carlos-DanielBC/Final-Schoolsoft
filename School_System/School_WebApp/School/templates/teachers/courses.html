@@ -21,7 +21,12 @@
                             <td>{{ student.first_name }}</td>
                             <td>{{ student.last_name }}</td>
                             <td>
-                                <a href="/calificar/?student_id={{ student.id }}&student_name={{ student.first_name }} {{ student.last_name }}">Calificar</a>
+                                <form action="/calificar/" method="POST">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="student_id" value="{{ student.id }}">
+                                    <input type="hidden" name="student_name" value="{{ student.first_name }} {{ student.last_name }}">
+                                    <button type="submit">Calificar</button>
+                                </form>
                             </td>
                         </tr>
                         {% endfor %}
