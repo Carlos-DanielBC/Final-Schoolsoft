@@ -1,6 +1,5 @@
 from django.db import models
 
-
 class Students(models.Model):
     first_name = models.CharField(max_length=200)
     last_name = models.CharField(max_length=200)
@@ -36,6 +35,9 @@ class Parents(models.Model):
 
 class Course(models.Model):
     level = models.CharField(max_length=200)
+    nombre_aula = models.CharField(max_length=100)
+    subject_id = models.ForeignKey(Subject, on_delete=models.CASCADE)
+    
 
 class Inscription(models.Model):
     student_id = models.ForeignKey(Students, on_delete=models.CASCADE)
@@ -45,5 +47,14 @@ class Inscription(models.Model):
     ref_pay = models.CharField(max_length=200)
     inscription_status = models.SmallIntegerField()
     
+class calification(models.Model):
+    student_id = models.ForeignKey(Students, on_delete=models.CASCADE)
+    firstPeriod = models.IntegerField(null=True)
+    secondPeriod = models.IntegerField(null=True)
+    thirdPeriod = models.IntegerField(null=True)
+    fourthPeriod = models.IntegerField(null=True)
+    finish = models.IntegerField(null=True)
+    Subject_id = models.ForeignKey(Subject, on_delete=models.CASCADE)
+    
 
-
+Students.inscriptions = models.ManyToManyField(Inscription, related_name='students')

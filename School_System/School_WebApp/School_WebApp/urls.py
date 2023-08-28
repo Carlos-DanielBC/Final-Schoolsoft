@@ -38,7 +38,10 @@ urlpatterns = [
     path('edit-subjects/',views.edit_subjects,name='edit-subjects'),
     path('edit-subjects/<int:id>',views.edit_subjects_b,name='edit-subjects'),
     path('edit-subjects/update/<int:id>',views.edit_subjects_confirm,name='update'),
-    path('teachers/', views.teachers)
+    path('teachers/', views.teachers),
+    path('courses/', views.lista_curso),
+    path('calificar/', views.calificar, name='calificar'),
+    path('calification/', views.califications, name='calification'),
 ]
 
 urlpatterns += [

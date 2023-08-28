@@ -8,18 +8,21 @@
 <body>
     <div>
         <h1>Create Students</h1>
-        <form action="">
+        <form action="/formStudent/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
             <input type="text" name="first_name">
             <input type="text" name="last_name">
             <input type="date" name="birthdate">
             <input type="email" name="email">
             <input type="number" name="phone_number">
             <input type="number" name="status">
+            <button type="submit">crear</button>
         </form>
     </div>
     <div>
         <h1>Create Subject</h1>
-        <form action="">
+        <form action="/formSubject/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
             <input type="text" name="name">
             <input type="date" name="start_date">
             <input type="text" name="description">
@@ -28,16 +31,20 @@
                 <option value="medio">medio</option>
                 <option value="avansado">avansado</option>
             </select>
+            <button type="submit">crear</button>
         </form>
     </div>
     <div>
         <h1>Create Course</h1>
-        <form action="">
+        <form action="/formCurso/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
             <select name="level" id="">
                 <option value="basico">basico</option>
                 <option value="medio">medio</option>
                 <option value="avansado">avansado</option>
             </select>
+            <input type="text" name="aula" placeholder="aula">
+            <button type="submit">crear</button>
         </form>
     </div>
 </body>

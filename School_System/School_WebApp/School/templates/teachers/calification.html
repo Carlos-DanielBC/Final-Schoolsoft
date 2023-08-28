@@ -1,0 +1,90 @@
+{% extends 'teachers/teachers.html' %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/styleTeachers.css' %}" />
+<div class="califation_estudent">
+    {% for item in cursos_y_asignaturas %}
+
+        <!-- <ul class="course_Subject">
+            <h2>{{ item.course.level }} - {{ item.course.nombre_aula }}</h2>
+            <h4>Asignatura:</h4>
+            <li>{{ item.subject.name }}</li>
+        </ul> -->
+        <div>
+            <table class="table table-dark table-striped" id="table">
+                <h2 class="title">Calificando a {{ student.first_name }} {{ student.last_name }}</h2>
+                <thead>
+                    <tr>
+                        <th colspan="6" id="titleCorse">{{ item.course.level }} - {{ item.course.nombre_aula }}</th>
+                    </tr>
+                    <tr>
+                        <th>Asignatura</th>
+                        <th>Calificacion Sep.-Nov</th>
+                        <th>Calificacion Dic.-Feb</th>
+                        <th>Calificacion Mar.-Abr</th>
+                        <th>Calificacion May.-Jun</th>
+                        <th>Calificacion Promedio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for asignatura in cursos_y_asignaturas %}
+                        <tr>
+                            <td>{{ asignatura.subject.name }}</td>
+                            <td>
+                                <form action="{% url 'calification' %}"
+                                id="form" method="post">
+                                 {% csrf_token %}
+                                    <input type="number" name="p1" maxlength="3" id="inp">
+                                    <input type="hidden" name="asignatura_id" value="{{ asignatura.subject.id }}">
+                                    <input type="hidden" name="student_id" value="{{ student.id }}">
+                                    <button id="contImg" name="button1"><img id="img" src="{% static 'images/imgTeacher/mas.png' %}" alt=""></button>
+                                </form>
+                            </td>
+                            <td>
+                                <!--? ---------aqui quede------------------ -->
+                                <form action="{% url 'calification' %}"
+                                id="form" method="post">
+                                 {% csrf_token %}
+                                    <input type="number" name="p2" maxlength="3" id="inp">
+                                    <input type="hidden" name="asignatura_id" value="{{ asignatura.subject.id }}">
+                                    <input type="hidden" name="student_id" value="{{ student.id }}">
+                                    <button id="contImg" name="button2"><img id="img" src="{% static 'images/imgTeacher/mas.png' %}" alt=""></button>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="" id="form">
+                                    <input type="number" name="p1" maxlength="3" id="inp">
+                                    <input type="hidden" name="asignatura_id" value="{{ asignatura.subject.id }}">
+                                    <button id="contImg"><img id="img" src="{% static 'images/imgTeacher/mas.png' %}" alt=""></button>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="" id="form">
+                                    <input type="number" name="p1" maxlength="3" id="inp">
+                                    <input type="hidden" name="asignatura_id" value="{{ asignatura.subject.id }}">
+                                    <button id="contImg"><img id="img" src="{% static 'images/imgTeacher/mas.png' %}" alt=""></button>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="" id="form">
+                                    <input type="number" name="p1" maxlength="3" id="inp">
+                                    <input type="hidden" name="asignatura_id" value="{{ asignatura.subject.id }}">
+                                    <button id="contImg"><img id="img" src="{% static 'images/imgTeacher/mas.png' %}" alt=""></button>
+                                </form>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    <tr>
+                        <td></td> 
+                        <td></td> 
+                        <td></td> 
+                        <td></td> 
+                        <td>Indice Academico:</td>
+                        <td >10</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %} 

@@ -1,0 +1,50 @@
+.content_padre{
+    width: 100%;
+    display: flex;
+}
+
+.content_curso{
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    background-color: #212529;
+    width: 300px;
+}
+
+.title{
+    color: white;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.califation_estudent{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    background-color: #212529;
+
+}
+
+.course_Subject{
+    color: white;
+    background-color: #212529;
+}
+#titleCorse{
+    text-align: center;
+    font-size: 24px;
+}
+#form{
+    width: 150px;
+}
+#inp{
+    width: 120px;
+}
+#contImg{
+    border: none;
+    background-color: #212529;
+}
+#img{
+    width: 25px;
+    height: auto;
+}

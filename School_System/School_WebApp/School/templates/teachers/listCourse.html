@@ -1,0 +1,25 @@
+{% extends 'teachers/teachers.html' %}
+{% block content %}
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>level</th>
+                <th>aula</th>
+                <th>Ingreso</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for curso in cursos %}
+                <tr>
+                    <td>{{ curso.id }}</td>
+                    <td>{{ curso.level }}</td>
+                    <td>{{ curso.nombre_aula }}</td>
+                    <td><a href="">Ingresar</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

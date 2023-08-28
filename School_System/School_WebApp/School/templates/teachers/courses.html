@@ -1,0 +1,35 @@
+{% extends 'teachers/teachers.html' %}
+{% block content %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styleTeachers.css' %}" />
+    <div class="content_padre">
+        {% for curso in cursos %}
+            <div class="content_curso">
+                
+                <table class="table table-dark table-striped" id="table">
+                    <h2 class="title">{{ curso.curso.level }} - {{ curso.curso.nombre_aula }}</h2>
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Calificar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for student in curso.students %}
+                        <tr>
+                            <td>{{ student.first_name }}</td>
+                            <td>{{ student.last_name }}</td>
+                            <td>
+                                <a href="/calificar/?student_id={{ student.id }}&student_name={{ student.first_name }} {{ student.last_name }}">Calificar</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                
+            </div>  
+        {% endfor %}
+    </div> 
+    
+{% endblock %} 
